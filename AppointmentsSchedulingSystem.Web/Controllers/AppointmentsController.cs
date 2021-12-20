@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AppointmentsSchedulingSystem.Service.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppointmentsSchedulingSystem.Web.Controllers
@@ -7,5 +7,10 @@ namespace AppointmentsSchedulingSystem.Web.Controllers
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
+        [HttpPost]
+        public string Post([FromBody] AppointmentDto appointmentDto)
+        {
+            return "Test me";
+        }
     }
 }
