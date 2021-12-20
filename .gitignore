@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Appointments-scheduling-system/Appointments-scheduling-system/obj
+/Appointments-scheduling-system/.vs/Appointments-scheduling-system/v17
+/Appointments-scheduling-system/Appointments-scheduling-system.Web/bin/Debug/net6.0
+/Appointments-scheduling-system/Appointments-scheduling-system.Web/obj
+/Appointments-scheduling-system/AppointmentsSchedulingSystem.Repository/obj
+/Appointments-scheduling-system/AppointmentsSchedulingSystem.Repository/bin/Debug/net6.0
+/Appointments-scheduling-system/AppointmentsSchedulingSystem.Service/bin/Debug/net6.0
+/Appointments-scheduling-system/AppointmentsSchedulingSystem.Service/obj
+/Appointments-scheduling-system/AppointmentsSchedulingSystem.Web/bin/Debug/net6.0
+/Appointments-scheduling-system/AppointmentsSchedulingSystem.Web/obj
+/.vs/Appointments-scheduling-system/v17
+/.vs
