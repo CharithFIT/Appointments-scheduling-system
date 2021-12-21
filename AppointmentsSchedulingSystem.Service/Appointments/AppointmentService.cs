@@ -23,7 +23,7 @@ namespace AppointmentsSchedulingSystem.Service.Appointments
                 throw new ArgumentNullException(nameof(appointmentDto));
             }
 
-            bool bookableAppointment = this.appointmentRepository.HasAlreadyBookedAppointment(appointmentDto.StartDate, appointmentDto.EndDate);
+            bool bookableAppointment = !this.appointmentRepository.HasAlreadyBookedAppointment(appointmentDto.StartDate, appointmentDto.EndDate);
 
             if (bookableAppointment) 
             {
