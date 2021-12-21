@@ -1,4 +1,6 @@
 using AppointmentsSchedulingSystem.Repository;
+using AppointmentsSchedulingSystem.Repository.Appointments;
+using AppointmentsSchedulingSystem.Service.Appointments;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbConfig(builder.Configuration);
+builder.Services
+    .AddConfig(builder.Configuration)
+    .InstallAppoinmentRepositories()
+    .InstallAppoinmentServices();
 
 var app = builder.Build();
 

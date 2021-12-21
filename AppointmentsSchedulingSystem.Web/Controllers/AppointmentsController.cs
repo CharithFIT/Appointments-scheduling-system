@@ -1,4 +1,5 @@
-﻿using AppointmentsSchedulingSystem.Service.Dtos;
+﻿using AppointmentsSchedulingSystem.Service.Appointments;
+using AppointmentsSchedulingSystem.Service.Appointments.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppointmentsSchedulingSystem.Web.Controllers
@@ -7,10 +8,19 @@ namespace AppointmentsSchedulingSystem.Web.Controllers
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
-        [HttpPost]
-        public string Post([FromBody] AppointmentDto appointmentDto)
+        private readonly IAppointmentService appointmentService;
+
+        public AppointmentsController(IAppointmentService appointmentService)
         {
-            return "Test me";
+            this.appointmentService = appointmentService ?? throw new ArgumentNullException(nameof(appointmentService));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] AppointmentDto appointmentDto)
+        {
+            await this.appointmentService.InsertAppointmentAsync(appointmentDto);
+
+            return Ok();
         }
     }
 }
