@@ -1,4 +1,5 @@
 ﻿using AppointmentsSchedulingSystem.Repository.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentsSchedulingSystem.Repository.Appointments
 {
@@ -9,6 +10,11 @@ namespace AppointmentsSchedulingSystem.Repository.Appointments
         public AppointmentRepository(AppointmentDbContext dbContext)
         {
             this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        }
+
+        public async Task<List<Appointment>> GetAppintmentsAsync(CancellationToken cancellationToken)
+        {
+            return await this.dbContext.Appointments.Include(x=>x.Person).Select(x => x).ToListAsync();
         }
 
         public bool HasAlreadyBookedAppointment(DateTime startTime, DateTime endTime)

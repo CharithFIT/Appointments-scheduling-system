@@ -16,11 +16,19 @@ namespace AppointmentsSchedulingSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] AppointmentDto appointmentDto)
+        public async Task<IActionResult> PostAsync([FromBody] AppointmentDto appointmentDto, CancellationToken cancellationToken = default(CancellationToken))
         {
-            await this.appointmentService.InsertAppointmentAsync(appointmentDto);
+            await this.appointmentService.InsertAppointmentAsync(appointmentDto, cancellationToken);
 
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            List<AppointmentDto> appointments = await this.appointmentService.GetAppointmentsAsync(cancellationToken);
+
+            return Ok(appointments);
         }
     }
 }

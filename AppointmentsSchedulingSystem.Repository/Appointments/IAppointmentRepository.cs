@@ -9,5 +9,7 @@ namespace AppointmentsSchedulingSystem.Repository.Appointments
         Task SaveAsyc(CancellationToken cancellationToken = default);
 
         bool HasAlreadyBookedAppointment(DateTime startDate, DateTime endDate);
+
+        Task<List<Appointment>> GetAppintmentsAsync(CancellationToken cancellationToken);
     }
 }

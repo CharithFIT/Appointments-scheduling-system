@@ -16,6 +16,15 @@ namespace AppointmentsSchedulingSystem.Service.Appointments
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        public async Task<List<AppointmentDto>> GetAppointmentsAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            List<Appointment> appointments = await this.appointmentRepository.GetAppintmentsAsync(cancellationToken);
+
+            List<AppointmentDto> appointmentDtos = appointments.Select(a => this.mapper.Map<AppointmentDto>(a)).ToList();
+
+            return appointmentDtos;
+        }
+
         public async Task InsertAppointmentAsync(AppointmentDto appointmentDto, CancellationToken cancellationToken = default)
         {
             if (appointmentDto == null)

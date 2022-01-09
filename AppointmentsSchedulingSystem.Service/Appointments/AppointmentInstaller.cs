@@ -1,4 +1,4 @@
-﻿using AppointmentsSchedulingSystem.Repository.Appointments.Profile;
+﻿using AppointmentsSchedulingSystem.Service.Appointments.Profiles;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AppointmentsSchedulingSystem.Service.Appointments

@@ -2,13 +2,14 @@
 using AppointmentsSchedulingSystem.Service.Appointments.Convertors;
 using AppointmentsSchedulingSystem.Service.Appointments.Dtos;
 
-namespace AppointmentsSchedulingSystem.Repository.Appointments.Profile
+namespace AppointmentsSchedulingSystem.Service.Appointments.Profiles
 {
     public class AppointmentProfile : AutoMapper.Profile
     {
         public AppointmentProfile()
         {
             CreateMap<AppointmentDto, Appointment>().ConvertUsing<AppointmentDtoToAppointmentConvertor>();
+            CreateMap<Appointment, AppointmentDto>().ConvertUsing<AppointmentToAppointmentDtoConvertor>();
         }
     }
 }
