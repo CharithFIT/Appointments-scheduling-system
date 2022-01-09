@@ -16,7 +16,7 @@ namespace AppointmentsSchedulingSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] AppointmentDto appointmentDto, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IActionResult> PostAsync([FromBody] AppointmentCreationDto appointmentDto, CancellationToken cancellationToken = default(CancellationToken))
         {
             await this.appointmentService.InsertAppointmentAsync(appointmentDto, cancellationToken);
 

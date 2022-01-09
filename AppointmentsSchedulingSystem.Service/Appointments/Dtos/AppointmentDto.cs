@@ -1,6 +1,6 @@
 ﻿namespace AppointmentsSchedulingSystem.Service.Appointments.Dtos
 {
-    public class AppointmentDto
+    public record AppointmentDto
     {
         public string PersonName { get; set; }
 

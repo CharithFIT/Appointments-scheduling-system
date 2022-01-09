@@ -4,7 +4,7 @@ namespace AppointmentsSchedulingSystem.Service.Appointments
 {
     public interface IAppointmentService
     {
-        Task InsertAppointmentAsync(AppointmentDto appointment, CancellationToken cancellationToken = default(CancellationToken));
+        Task InsertAppointmentAsync(AppointmentCreationDto appointment, CancellationToken cancellationToken = default(CancellationToken));
 
 
         Task<List<AppointmentDto>> GetAppointmentsAsync(CancellationToken cancellationToken = default(CancellationToken));

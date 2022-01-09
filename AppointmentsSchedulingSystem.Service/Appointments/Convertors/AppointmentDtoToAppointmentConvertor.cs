@@ -4,9 +4,9 @@ using AutoMapper;
 
 namespace AppointmentsSchedulingSystem.Service.Appointments.Convertors
 {
-    public class AppointmentDtoToAppointmentConvertor : ITypeConverter<AppointmentDto, Appointment>
+    public class AppointmentDtoToAppointmentConvertor : ITypeConverter<AppointmentCreationDto, Appointment>
     {
-        public Appointment Convert(AppointmentDto source, Appointment destination, ResolutionContext context)
+        public Appointment Convert(AppointmentCreationDto source, Appointment destination, ResolutionContext context)
         {
             if (destination == null) 
             {

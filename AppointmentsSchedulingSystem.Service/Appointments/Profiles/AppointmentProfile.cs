@@ -8,7 +8,7 @@ namespace AppointmentsSchedulingSystem.Service.Appointments.Profiles
     {
         public AppointmentProfile()
         {
-            CreateMap<AppointmentDto, Appointment>().ConvertUsing<AppointmentDtoToAppointmentConvertor>();
+            CreateMap<AppointmentCreationDto, Appointment>().ConvertUsing<AppointmentDtoToAppointmentConvertor>();
             CreateMap<Appointment, AppointmentDto>().ConvertUsing<AppointmentToAppointmentDtoConvertor>();
         }
     }

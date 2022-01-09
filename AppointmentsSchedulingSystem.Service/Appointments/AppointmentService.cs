@@ -25,7 +25,7 @@ namespace AppointmentsSchedulingSystem.Service.Appointments
             return appointmentDtos;
         }
 
-        public async Task InsertAppointmentAsync(AppointmentDto appointmentDto, CancellationToken cancellationToken = default)
+        public async Task InsertAppointmentAsync(AppointmentCreationDto appointmentDto, CancellationToken cancellationToken = default)
         {
             if (appointmentDto == null)
             {
