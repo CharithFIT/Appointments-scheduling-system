@@ -23,3 +23,5 @@
 /AppointmentsSchedulingSystem.Service/bin/Debug/net6.0
 /AppointmentsSchedulingSystem.Web/bin/Debug/net6.0
 /AppointmentsSchedulingSystem.Web/obj
+/AppointmentsSchedulingSystem.Test/obj
+/AppointmentsSchedulingSystem.Test/bin/Debug/net6.0

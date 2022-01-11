@@ -25,7 +25,7 @@ namespace AppointmentsSchedulingSystem.Service.Appointments
             return appointmentDtos;
         }
 
-        public async Task InsertAppointmentAsync(AppointmentCreationDto appointmentDto, CancellationToken cancellationToken = default)
+        public async Task<AppointmentDto> InsertAppointmentAsync(AppointmentCreationDto appointmentDto, CancellationToken cancellationToken = default)
         {
             if (appointmentDto == null)
             {
@@ -44,6 +44,10 @@ namespace AppointmentsSchedulingSystem.Service.Appointments
             await this.appointmentRepository.InsertAppointmentAsync(appointment, cancellationToken);
 
             await this.appointmentRepository.SaveAsyc();
+
+            AppointmentDto result = this.mapper.Map<AppointmentDto>(appointment);
+
+            return result;
         }
     }
 }

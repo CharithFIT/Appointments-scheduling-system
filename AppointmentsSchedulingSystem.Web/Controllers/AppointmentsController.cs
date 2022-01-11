@@ -1,6 +1,7 @@
 ﻿using AppointmentsSchedulingSystem.Service.Appointments;
 using AppointmentsSchedulingSystem.Service.Appointments.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace AppointmentsSchedulingSystem.Web.Controllers
 {
@@ -16,15 +17,17 @@ namespace AppointmentsSchedulingSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] AppointmentCreationDto appointmentDto, CancellationToken cancellationToken = default(CancellationToken))
+        [SwaggerResponse(200, null, typeof(AppointmentDto))]
+        public async Task<IActionResult> PostAsync([FromBody] AppointmentCreationDto appointmentDto, CancellationToken cancellationToken = default)
         {
-            await this.appointmentService.InsertAppointmentAsync(appointmentDto, cancellationToken);
+            AppointmentDto result =  await this.appointmentService.InsertAppointmentAsync(appointmentDto, cancellationToken);
 
-            return Ok();
+            return Ok(result);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken = default(CancellationToken))
+        [SwaggerResponse(200, null, typeof(List<AppointmentDto>))]
+        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken = default)
         {
             List<AppointmentDto> appointments = await this.appointmentService.GetAppointmentsAsync(cancellationToken);
 
